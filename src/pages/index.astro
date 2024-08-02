@@ -1,0 +1,207 @@
+<section class="h-[1000px] bg-red-300"></section>
+
+<section id="text-stop" class="h-[300vh] relative">
+  <div
+    class="flex flex-col justify-center items-center text-2xl font-bold text-center border-red-500 border h-screen sticky top-0"
+  >
+    <div id="step-1" class="step">
+      <h3 class="flex gap-x-4 overflow-hidden">
+        <span>x</span><span>y</span><span>z</span>
+      </h3>
+    </div>
+
+    <div id="step-2" class="step">
+      <h3 class="overflow-hidden">
+        <span>Tres generaciones,</span>
+      </h3>
+      <h3 class="overflow-hidden">
+        <span>tres coordenadas,</span>
+      </h3>
+      <h3 class="overflow-hidden">
+        <span>tres caminos <span class="text-green-500">...</span></span>
+      </h3>
+    </div>
+
+    <div id="step-3" class="step">
+      <h4>
+        <span><span class="text-green-500 mr-2">...</span> para Proplayers</span
+        >
+      </h4>
+      <h3 class="overflow-hidden">
+        <span>
+          Tu carrera no terminara <br /> hasta que acabe la partida <span
+            class="text-green-500">.</span
+          >
+        </span>
+      </h3>
+    </div>
+
+    <div id="step-4" class="step">
+      <h4>
+        <span><span class="text-green-500">...</span> para Creadores</span>
+      </h4>
+      <h3 class="overflow-hidden">
+        <span
+          >Tu contenido no perdera <br /> entre scrolls infinitos <span
+            class="text-green-500">.</span
+          ></span
+        >
+      </h3>
+    </div>
+
+    <div id="step-5" class="step">
+      <h4>
+        <span><span class="text-green-500">...</span> para Influencers</span>
+      </h4>
+      <h3 class="overflow-hidden">
+        <span>
+          El valor de tu imagen <br /> no se medira en likes <span
+            class="text-green-500">.</span
+          >
+        </span>
+      </h3>
+    </div>
+  </div>
+</section>
+
+<section class="h-[1000px] bg-red-300"></section>
+
+<style>
+  span {
+    display: inline-block;
+  }
+
+  .step {
+    @apply absolute;
+    opacity: 0;
+  }
+
+  #step-1 {
+    @apply opacity-100;
+
+    & span {
+      @apply leading-relaxed;
+      transform: translateY(100%);
+    }
+  }
+
+  #step-2 {
+    & span {
+      transform: translateY(100%);
+    }
+  }
+
+  #step-3,
+  #step-4,
+  #step-5 {
+    & h4 > span,
+    & h3 > span {
+      transform: translateY(100%);
+    }
+  }
+
+  h3 {
+    @apply text-9xl;
+  }
+</style>
+
+<script>
+  import { timeline, scroll } from "motion";
+
+  const sequence = [
+    [
+      "#step-1 h3 span:first-child",
+      { transform: "translateY(0%)" },
+      { duration: 0.1 },
+    ],
+    [
+      "#step-1 h3 span:nth-child(2)",
+      { transform: "translateY(0%)" },
+      { duration: 0.1, at: 0.01 },
+    ],
+    [
+      "#step-1 h3 span:nth-child(3)",
+      { transform: "translateY(0%)" },
+      { duration: 0.1, at: 0.02 },
+    ],
+
+    [
+      "#step-1 h3 span:first-child",
+      { transform: "translateY(-100%)" },
+      { duration: 0.1, at: 0.2 },
+    ],
+    [
+      "#step-1 h3 span:nth-child(2)",
+      { transform: "translateY(-100%)" },
+      { duration: 0.1, at: 0.21 },
+    ],
+    [
+      "#step-1 h3 span:nth-child(3)",
+      { transform: "translateY(-100%)" },
+      { duration: 0.1, at: 0.22 },
+    ],
+
+    ["#step-2", { opacity: 1 }, { duration: 0.0001, at: 0.22 }],
+
+    [
+      "#step-2 h3:first-child span",
+      { transform: "translateY(0%)" },
+      { duration: 0.1, at: 0.25 },
+    ],
+    [
+      "#step-2 h3:nth-child(2) span",
+      { transform: "translateY(0%)" },
+      { duration: 0.1, at: 0.3 },
+    ],
+    [
+      "#step-2 h3:nth-child(3) span",
+      { transform: "translateY(0%)" },
+      { duration: 0.1, at: 0.35 },
+    ],
+    ["#step-2", { opacity: 0 }, { duration: 0.00001, at: 0.45 }],
+
+    ["#step-3", { opacity: 1 }, { duration: 0.00001, at: 0.45 }],
+    [
+      "#step-3 h4",
+      { transform: "translateY(-200%)" },
+      { duration: 0.1, at: 0.5 },
+    ],
+    [
+      "#step-3 h3 span:first-child",
+      { transform: "translateY(0%)" },
+      { duration: 0.1, at: 0.55 },
+    ],
+    ["#step-3", { opacity: 0 }, { duration: 0.00001, at: 1 }],
+
+    ["#step-4", { opacity: 1 }, { duration: 0.00001, at: 1 }],
+    [
+      "#step-4 h4",
+      { transform: "translateY(-200%)" },
+      { duration: 0.1, at: 1 },
+    ],
+    [
+      "#step-4 h3 span:first-child",
+      { transform: "translateY(0%)" },
+      { duration: 0.1, at: 1.1 },
+    ],
+    ["#step-4", { opacity: 0 }, { duration: 0.00001, at: 2.1 }],
+    ["#step-5", { opacity: 1 }, { duration: 0.00001, at: 2.1 }],
+    [
+      "#step-5 h4",
+      { transform: "translateY(-200%)" },
+      { duration: 0.1, at: 2.15 },
+    ],
+    [
+      "#step-5 h3 span:first-child",
+      { transform: "translateY(0%)" },
+      { duration: 0.1, at: 2.25 },
+    ],
+  ];
+
+  const timelineScroll = timeline(sequence);
+
+  scroll(timelineScroll, {
+    target: document.querySelector("#text-stop"),
+    offset: ["-400px", "end end"],
+  });
+</script>
