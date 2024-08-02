@@ -106,9 +106,14 @@
 </style>
 
 <script>
-  import { timeline, scroll } from "motion";
+  import {
+    timeline,
+    scroll,
+    type TimelineDefinition,
+    type ScrollOptions,
+  } from "motion";
 
-  const sequence = [
+  const sequence: TimelineDefinition = [
     [
       "#step-1 h3 span:first-child",
       { transform: "translateY(0%)" },
@@ -203,5 +208,5 @@
   scroll(timelineScroll, {
     target: document.querySelector("#text-stop"),
     offset: ["-400px", "end end"],
-  });
+  } as ScrollOptions);
 </script>
